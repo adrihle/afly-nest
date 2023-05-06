@@ -15,8 +15,8 @@ export class InstagramProvider {
   }
 
   private createConnection(config: Config) {
-    const newConnection = `${config.apiKey} connection!`;
-    return newConnection;
+    if (config.apiKey !== '') return 'successfull';
+    return 'not connected';
   }
 
   getConnection() {
