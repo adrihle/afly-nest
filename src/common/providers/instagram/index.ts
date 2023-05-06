@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-export type TInstagramConfig = {
+type TInstagramConfig = {
   apiKey: string;
 };
 
@@ -9,10 +9,10 @@ type TStatus = {
   message: string;
 };
 
-export const INSTAGRAM = 'INSTAGRAM' as const;
+const INSTAGRAM = 'INSTAGRAM' as const;
 
 @Injectable()
-export class InstagramProvider {
+class InstagramProvider {
   private readonly logger = new Logger(InstagramProvider.name);
   private status: TStatus;
 
@@ -37,3 +37,5 @@ export class InstagramProvider {
     return this.status;
   }
 }
+
+export { InstagramProvider, TInstagramConfig, INSTAGRAM };
