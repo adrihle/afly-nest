@@ -18,9 +18,18 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@routes": ["src/routes"],
-      "@helpers": ["src/common/helpers"],
-      "@testing": ["src/common/testing"]
+      "@routes": [
+        "src/routes"
+      ],
+      "@helpers": [
+        "src/common/helpers"
+      ],
+      "@testing": [
+        "src/common/testing"
+      ],
+      "@providers": [
+        "src/common/providers"
+      ]
     }
   }
 }

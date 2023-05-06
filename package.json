@@ -75,7 +75,8 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "^@helpers": "<rootDir>/common/helper/$1",
-      "^@testing": "<rootDir>/common/testing/$1"
+      "^@testing": "<rootDir>/common/testing/$1",
+      "^@providers": "<rootDir>/common/providers/$1"
     }
   }
 }

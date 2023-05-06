@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { InstagramProvider } from '@providers';
 import { TestController } from './controller';
-import { TestService } from './service';
 
 @Module({
   controllers: [TestController],
-  providers: [ConfigService, TestService],
+  providers: [ConfigService, InstagramProvider],
 })
 export class TestModule {}
