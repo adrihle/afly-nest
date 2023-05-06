@@ -1,3 +1,3 @@
 export default async () => {
-  console.log('TESTLOG>>>>');
+  console.log('TESTLOG>>>>', { data: process.env.PORT });
 };

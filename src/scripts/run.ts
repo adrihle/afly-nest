@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 const run = async () => {
   const script = await import(`./${process.argv[2]}`);
   await script.default();

@@ -3,8 +3,7 @@ import { TestService } from './service';
 
 @Controller()
 export class TestController {
-  @Inject()
-  private readonly service: TestService;
+  @Inject() private readonly service: TestService;
 
   @Get()
   get(): string {
