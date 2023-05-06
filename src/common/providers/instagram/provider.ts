@@ -15,7 +15,12 @@ export class InstagramProvider {
   }
 
   private createConnection(config: Config) {
-    if (config.apiKey !== '') return 'successfull';
+    if (config.apiKey !== '') {
+      console.log(
+        `#provider #instagram successfull connected through ${config.apiKey}`,
+      );
+      return 'successfull';
+    }
     return 'not connected';
   }
 
