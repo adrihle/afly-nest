@@ -13,7 +13,7 @@ const envFilePath = getEnvPath(`${__dirname}/common/env`);
       envFilePath,
     }),
     InstagramModule.forRoot({
-      apiKey: process.env.PORT,
+      apiKey: process.env.INSTAGRAM_API_KEY,
     }),
     RoutesModule,
   ],
