@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ProvidersModule } from '../module';
-import { InstagramProvider } from './provider';
+import { InstagramProvider } from '.';
 
 describe('INSTRAGRAM', () => {
   let instagramService: InstagramProvider;
@@ -22,6 +22,6 @@ describe('INSTRAGRAM', () => {
   });
 
   it('service should connect successfully', () => {
-    expect(instagramService.getConnection()).toBe('successfull');
+    expect(instagramService.checkHealth().status).toBe('ok');
   });
 });

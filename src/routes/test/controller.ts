@@ -6,8 +6,8 @@ export class TestController {
   @Inject(InstagramProvider) private readonly instagram: InstagramProvider;
 
   @Get()
-  get(): string {
-    const response = this.instagram.getConnection();
+  get() {
+    const response = this.instagram.checkHealth();
     return response;
   }
 }

@@ -11,6 +11,6 @@ describe('TEST E2E', () => {
   });
 
   it('/ (GET)', async () => {
-    return request(app.getHttpServer()).get('/').expect('successfull');
+    return request(app.getHttpServer()).get('/').expect(200);
   });
 });
