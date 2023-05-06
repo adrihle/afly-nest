@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import { InstagramModule } from '../providers/instagram';
 import { getEnvPath } from '../helpers';
+import { ProvidersModule } from '../providers/module';
 
 type Module =
   | Type<any>
@@ -21,7 +21,11 @@ export default async (modules: Module[]): Promise<INestApplication> => {
   const moduleFixture: TestingModule = await Test.createTestingModule({
     imports: [
       ConfigModule.forRoot({ isGlobal: true, envFilePath }),
-      InstagramModule.forRoot({ apiKey: process.env.INSTAGRAM_API_KEY }),
+      ProvidersModule.forRoot({
+        INSTAGRAM: {
+          apiKey: process.env.INSTAGRAM_API_KEY,
+        },
+      }),
       ...modules,
     ],
   }).compile();
