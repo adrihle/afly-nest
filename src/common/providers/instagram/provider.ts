@@ -1,26 +1,25 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+
+export const CONFIG = 'CONFIG' as const;
+
+export type Config = {
+  apiKey: string;
+};
 
 @Injectable()
 export class InstagramProvider {
-  public connection: string;
-  public provider: typeof globalThis = globalThis;
+  private readonly connection: string;
 
-  init() {
-    this.connection = 'connection';
-    return this.provider;
+  constructor(@Inject(CONFIG) config: Config) {
+    this.connection = this.createConnection(config);
   }
 
-  getFeed() {
-    return 'instagram provider';
+  private createConnection(config: Config) {
+    const newConnection = `${config.apiKey} connection!`;
+    return newConnection;
   }
 
   getConnection() {
     return this.connection;
   }
 }
-
-export const init = async () => {
-  const provider = new InstagramProvider();
-  await provider.init();
-  return provider;
-};

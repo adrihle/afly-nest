@@ -3,12 +3,11 @@ import { InstagramProvider } from '@providers';
 
 @Controller()
 export class TestController {
-  @Inject() private readonly instagram: InstagramProvider;
+  @Inject(InstagramProvider) private readonly instagram: InstagramProvider;
 
   @Get()
   get(): string {
-    const response = this.instagram.getFeed();
-    console.log({ response });
+    const response = this.instagram.getConnection();
     return response;
   }
 }

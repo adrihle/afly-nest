@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
+import { InstagramModule } from '../providers/instagram';
 
 type Module =
   | Type<any>
@@ -15,7 +16,11 @@ type Module =
 
 export default async (modules: Module[]): Promise<INestApplication> => {
   const moduleFixture: TestingModule = await Test.createTestingModule({
-    imports: [ConfigModule.forRoot(), ...modules],
+    imports: [
+      ConfigModule.forRoot(),
+      InstagramModule.forRoot({ apiKey: '12345' }),
+      ...modules,
+    ],
   }).compile();
 
   const mockedApp = moduleFixture.createNestApplication();
