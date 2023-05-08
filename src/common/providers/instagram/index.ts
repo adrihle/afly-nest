@@ -32,7 +32,7 @@ class InstagramProvider {
   }
 
   checkHealth() {
-    const ig = this.config.get('INSTAGRAM_ACCOUNT_USERNAME')
+    // const ig = this.config.get('INSTAGRAM_ACCOUNT_USERNAME')
     return this.status;
   }
 }
