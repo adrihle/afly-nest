@@ -17,7 +17,10 @@ describe('INSTRAGRAM', () => {
           envFilePath,
         }),
         ProvidersModule.forRoot({
-          INSTAGRAM: { apiKey: '12345' },
+          INSTAGRAM: {
+            username: process.env.INSTAGRAM_ACCOUNT_USERNAME,
+            password: process.env.INSTAGRAM_ACCOUNT_PASSWORD,
+          },
         }),
       ],
     }).compile();

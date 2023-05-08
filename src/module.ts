@@ -14,7 +14,8 @@ const envFilePath = getEnvPath(`${__dirname}/common/env`);
     }),
     ProvidersModule.forRoot({
       INSTAGRAM: {
-        apiKey: process.env.INSTAGRAM_API_KEY,
+        username: process.env.INSTAGRAM_ACCOUNT_USERNAME,
+        password: process.env.INSTAGRAM_ACCOUNT_PASSWORD,
       },
     }),
     RoutesModule,
