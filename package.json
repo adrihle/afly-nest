@@ -27,6 +27,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "dotenv": "^16.0.3",
+    "instagram-web-api": "^2.2.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
@@ -74,7 +75,7 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "^@helpers": "<rootDir>/common/helper/$1",
+      "^@helpers": "<rootDir>/common/helpers/$1",
       "^@testing": "<rootDir>/common/testing/$1",
       "^@providers": "<rootDir>/common/providers/$1"
     }

@@ -1,26 +1,24 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { TProviderStatus } from '../interfaces';
 
 type TInstagramConfig = {
   apiKey: string;
-};
-
-type TStatus = {
-  status: 'ok' | 'down';
-  message: string;
 };
 
 const INSTAGRAM = 'INSTAGRAM' as const;
 
 @Injectable()
 class InstagramProvider {
+  @Inject(ConfigService) private config: ConfigService;
   private readonly logger = new Logger(InstagramProvider.name);
-  private status: TStatus;
+  private status: TProviderStatus;
 
   constructor(config: TInstagramConfig) {
     this.status = this.createConnection(config);
   }
 
-  private createConnection({ apiKey }: TInstagramConfig): TStatus {
+  private createConnection({ apiKey }: TInstagramConfig): TProviderStatus {
     if (!apiKey || typeof apiKey !== 'string')
       return {
         status: 'down',
@@ -34,6 +32,7 @@ class InstagramProvider {
   }
 
   checkHealth() {
+    const ig = this.config.get('INSTAGRAM_ACCOUNT_USERNAME')
     return this.status;
   }
 }
