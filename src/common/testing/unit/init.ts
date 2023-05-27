@@ -17,6 +17,10 @@ const createTestModule = async () => {
           clientId: process.env.FB_API_KEY,
           secretId: process.env.FB_API_SECRET,
         },
+        EMAIL: {
+          email: 'test@email.com',
+          password: 'password',
+        },
       }),
     ],
   }).compile();
