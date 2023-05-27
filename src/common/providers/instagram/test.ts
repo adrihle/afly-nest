@@ -1,7 +1,7 @@
 import { InstagramProvider } from '.';
 import { createTestModule } from '@testing';
 
-describe('INSTRAGRAM', () => {
+describe('[PROVIDER] INSTAGRAM', () => {
   let instagramService: InstagramProvider;
 
   beforeEach(async () => {
