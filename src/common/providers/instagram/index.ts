@@ -53,7 +53,6 @@ class InstagramProvider extends BaseProvider {
           },
         })
         .then(({ data }) => data)
-        .catch(({ response }) => console.log({ response }))
     );
   };
 

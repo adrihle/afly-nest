@@ -77,9 +77,9 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "^@helpers": "<rootDir>/common/helpers/$1",
-      "^@testing": "<rootDir>/common/testing/$1",
-      "^@providers": "<rootDir>/common/providers/$1"
+      "^@helpers": "<rootDir>/common/helpers",
+      "^@testing": "<rootDir>/common/testing",
+      "^@providers": "<rootDir>/common/providers"
     }
   }
 }

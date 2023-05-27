@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import { getEnvPath } from '../helpers';
-import { ProvidersModule } from '../providers/module';
+import { getEnvPath } from '@helpers';
+import { ProvidersModule } from '../../providers/module';
 
 type Module =
   | Type<any>
