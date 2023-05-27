@@ -12,10 +12,10 @@ const envFilePath = getEnvPath(`${__dirname}/common/env`);
       isGlobal: true,
       envFilePath,
     }),
-    ProvidersModule.forRoot({
+    ProvidersModule.forRootAsync({
       INSTAGRAM: {
-        username: process.env.INSTAGRAM_ACCOUNT_USERNAME,
-        password: process.env.INSTAGRAM_ACCOUNT_PASSWORD,
+        clientId: process.env.FB_API_KEY,
+        secretId: process.env.FB_API_SECRET,
       },
     }),
     RoutesModule,

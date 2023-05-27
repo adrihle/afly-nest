@@ -21,9 +21,10 @@ export default async (modules: Module[]): Promise<INestApplication> => {
   const moduleFixture: TestingModule = await Test.createTestingModule({
     imports: [
       ConfigModule.forRoot({ isGlobal: true, envFilePath }),
-      ProvidersModule.forRoot({
+      ProvidersModule.forRootAsync({
         INSTAGRAM: {
-          apiKey: process.env.INSTAGRAM_API_KEY,
+          clientId: process.env.API_KEY,
+          secretId: process.env.API_SECRET,
         },
       }),
       ...modules,

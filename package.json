@@ -22,10 +22,12 @@
     "script": "npx ts-node ./src/scripts/run.ts"
   },
   "dependencies": {
+    "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "instagram-web-api": "^2.2.2",
     "reflect-metadata": "^0.1.13",

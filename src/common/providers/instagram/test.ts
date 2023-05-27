@@ -16,10 +16,10 @@ describe('INSTRAGRAM', () => {
           isGlobal: true,
           envFilePath,
         }),
-        ProvidersModule.forRoot({
+        ProvidersModule.forRootAsync({
           INSTAGRAM: {
-            username: process.env.INSTAGRAM_ACCOUNT_USERNAME,
-            password: process.env.INSTAGRAM_ACCOUNT_PASSWORD,
+            clientId: process.env.FB_API_KEY,
+            secretId: process.env.FB_API_SECRET,
           },
         }),
       ],
@@ -34,5 +34,15 @@ describe('INSTRAGRAM', () => {
 
   it('service should connect successfully', () => {
     expect(instagramService.checkHealth().status).toBe('ok');
+  });
+
+  it('test feature', async () => {
+    try {
+      const resp = await instagramService.test();
+      console.log({ resp });
+    } catch (err) {
+      console.log({ err: err.response });
+    }
+    expect(true);
   });
 });
