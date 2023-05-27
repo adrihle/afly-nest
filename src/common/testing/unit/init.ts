@@ -1,12 +1,11 @@
 import { getEnvPath } from '@helpers';
-import { DynamicModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test } from '@nestjs/testing';
 import { ProvidersModule } from '@providers';
 
 const envFilePath = getEnvPath(`${__dirname}/../../common/env`);
 
-const createTestModule = async (module: DynamicModule) => {
+const createTestModule = async () => {
   return Test.createTestingModule({
     imports: [
       ConfigModule.forRoot({
