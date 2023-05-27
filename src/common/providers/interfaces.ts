@@ -4,9 +4,4 @@ type TProviderConfig = {
   [INSTAGRAM]: TInstagramConfig;
 };
 
-type TProviderStatus = {
-  status: 'ok' | 'down';
-  message: string;
-};
-
-export type { TProviderConfig, TProviderStatus };
+export type { TProviderConfig };

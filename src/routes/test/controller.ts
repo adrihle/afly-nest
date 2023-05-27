@@ -9,9 +9,9 @@ export class TestController {
 
   @Get()
   get() {
-    const response = this.instagram.checkHealth();
+    // const response = this.instagram.checkHealth();
     const config = this.config.get('PORT');
     console.log({ config });
-    return response;
+    return '';
   }
 }

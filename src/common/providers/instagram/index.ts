@@ -1,30 +1,19 @@
-import { HttpService } from '@nestjs/axios';
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
-import { tap } from 'rxjs';
-import { TProviderStatus } from '../interfaces';
-
-type TInstagramConfig = {
-  clientId: string;
-  secretId: string;
-};
-
-type TAuthResponse = {
-  access_token: string;
-  token_type: string;
-};
+import { BaseProvider } from '../base';
+import { TAuthResponse, TInstagramConfig } from './interfaces';
 
 const INSTAGRAM = 'INSTAGRAM' as const;
 const BASE_URL = 'https://graph.facebook.com';
 
 @Injectable()
-class InstagramProvider {
+class InstagramProvider extends BaseProvider {
   private readonly logger = new Logger(InstagramProvider.name);
   private config: TInstagramConfig;
-  private status: TProviderStatus;
   private client: AxiosInstance;
 
   constructor(config: TInstagramConfig) {
+    super();
     this.config = config;
   }
 
@@ -39,17 +28,13 @@ class InstagramProvider {
         baseURL: BASE_URL,
         params: { access_token: resp?.access_token },
       });
-      this.logger.log(`Initialized provider with ${this.config.clientId}`);
-      this.status = {
+      this.updateStatus({
         status: 'ok',
-        message: 'Instagram running correctly',
-      };
+        message: 'Instagram provider initialized correctly',
+      });
+      this.logger.log(`Initialized provider with ${this.config.clientId}`);
     } catch (err) {
       this.logger.error(err);
-      this.status = {
-        status: 'down',
-        message: err,
-      };
     }
   }
 
@@ -71,10 +56,6 @@ class InstagramProvider {
         .catch(({ response }) => console.log({ response }))
     );
   };
-
-  checkHealth() {
-    return this.status;
-  }
 
   async test() {
     console.log(this.client);
