@@ -1,17 +1,22 @@
 import { Injectable } from '@nestjs/common';
+import { BaseProvider } from '../base';
 import { TEmailConfig } from './interfaces';
 
 const EMAIL = 'EMAIL' as const;
 
 @Injectable()
-class EmailProvider {
+class EmailProvider extends BaseProvider {
   private config: TEmailConfig;
 
   constructor(config: TEmailConfig) {
+    super();
     this.config = config;
   }
   init() {
-    console.log('initialized');
+    this.updateStatus({
+      status: 'ok',
+      message: 'Email service running correctly',
+    });
   }
 }
 

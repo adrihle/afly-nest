@@ -1,4 +1,5 @@
 import { createTestModule } from '@testing';
+import { EmailProvider } from '.';
 
 describe('[PROVIDER] EMAIL', () => {
   let service: any;
@@ -6,10 +7,10 @@ describe('[PROVIDER] EMAIL', () => {
   beforeEach(async () => {
     const ref = await createTestModule();
 
-    service = ref;
+    service = ref.get<EmailProvider>(EmailProvider);
   });
 
-  it('Should be defined', () => {
-    expect(service).toBeDefined();
+  it('Should correctly initialized', () => {
+    expect(service.checkStatus().status).toBe('ok');
   });
 });
