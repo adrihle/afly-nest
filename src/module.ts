@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { RoutesModule } from './routes/module';
-import { ProvidersModule } from './common/providers/module';
-import { NEST_CONFIG, PROVIDER_CONFIG } from './common/config';
+import { ProvidersModule } from '@providers';
+import { NEST_CONFIG, PROVIDER_CONFIG } from '@config';
 
 @Module({
   imports: [

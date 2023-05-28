@@ -81,7 +81,8 @@
       "^@/(.*)$": "<rootDir>/src/$1",
       "^@helpers": "<rootDir>/common/helpers",
       "^@testing": "<rootDir>/common/testing",
-      "^@providers": "<rootDir>/common/providers"
+      "^@providers": "<rootDir>/common/providers",
+      "^@config": "<rootDir>/common/config"
     }
   }
 }

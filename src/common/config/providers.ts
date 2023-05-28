@@ -1,4 +1,4 @@
-import { TProviderConfig } from '../providers/interfaces';
+import { TProviderConfig } from '@providers';
 
 const PROVIDER_CONFIG: TProviderConfig = {
   INSTAGRAM: {

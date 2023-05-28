@@ -1,7 +1,7 @@
 import { ConfigModule } from '@nestjs/config';
 import { Test } from '@nestjs/testing';
 import { ProvidersModule } from '@providers';
-import { NEST_CONFIG, PROVIDER_CONFIG } from '../../config';
+import { NEST_CONFIG, PROVIDER_CONFIG } from '@config';
 
 const createTestModule = async () => {
   return Test.createTestingModule({

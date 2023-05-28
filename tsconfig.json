@@ -29,6 +29,9 @@
       ],
       "@providers": [
         "src/common/providers"
+      ],
+      "@config": [
+        "src/common/config"
       ]
     }
   }
