@@ -22,7 +22,6 @@ class EmailProvider extends BaseProvider {
         pass: testAccount.pass,
       },
     });
-    console.log({ transporter });
     this.updateStatus({
       status: 'ok',
       message: 'Email service running correctly',
