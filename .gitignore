@@ -1,5 +1,8 @@
 # env files
 *.env
+.dev.env
+.env
+.prod.env
 src/common/env/*
 
 # compiled output
