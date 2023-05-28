@@ -1,5 +1,6 @@
 # env files
 *.env
+src/common/env/*
 
 # compiled output
 /dist
