@@ -1,6 +1,4 @@
 import { DynamicModule, Module, Global, Provider } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { getEnvPath } from '../helpers/env.helper';
 import { EMAIL, EmailProvider } from './email';
 import { INSTAGRAM, InstagramProvider } from './instagram';
 import { TProviderConfig } from './interfaces';
@@ -26,12 +24,6 @@ export class ProvidersModule {
     ];
 
     return {
-      imports: [
-        ConfigModule.forRoot({
-          isGlobal: true,
-          envFilePath: getEnvPath(`${__dirname}/../../common/env`),
-        }),
-      ],
       module: ProvidersModule,
       providers,
       exports: providers,
