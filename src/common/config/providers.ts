@@ -1,6 +1,6 @@
 import { TProviderConfig } from '@providers';
 
-const PROVIDER_CONFIG: TProviderConfig = {
+const PROVIDER_CONFIG = (): TProviderConfig => ({
   INSTAGRAM: {
     clientId: process.env.FB_API_KEY,
     secretId: process.env.FB_API_SECRET,
@@ -9,6 +9,6 @@ const PROVIDER_CONFIG: TProviderConfig = {
     email: process.env.EMAIL_ADDRESS,
     password: process.env.EMAIL_PASSWORD,
   },
-};
+});
 
 export { PROVIDER_CONFIG };

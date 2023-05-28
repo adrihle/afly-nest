@@ -7,7 +7,7 @@ import { NEST_CONFIG, PROVIDER_CONFIG } from '@config';
 @Module({
   imports: [
     ConfigModule.forRoot(NEST_CONFIG),
-    ProvidersModule.forRootAsync(PROVIDER_CONFIG),
+    ProvidersModule.forRootAsync(PROVIDER_CONFIG()),
     RoutesModule,
   ],
 })

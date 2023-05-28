@@ -1,6 +1,14 @@
+import { TTemplateConfig } from './templates';
+
 type TEmailConfig = {
   email: string;
   password: string;
 };
 
-export type { TEmailConfig };
+type TSendEmailParams = {
+  template: TTemplateConfig;
+  to: string;
+  subject: string;
+};
+
+export type { TEmailConfig, TSendEmailParams };

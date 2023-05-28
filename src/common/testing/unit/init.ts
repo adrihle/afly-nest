@@ -7,7 +7,7 @@ const createTestModule = async () => {
   return Test.createTestingModule({
     imports: [
       ConfigModule.forRoot(NEST_CONFIG),
-      ProvidersModule.forRootAsync(PROVIDER_CONFIG),
+      ProvidersModule.forRootAsync(PROVIDER_CONFIG()),
     ],
   }).compile();
 };

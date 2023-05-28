@@ -1,7 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { BaseProvider } from '../base';
-import { TEmailConfig } from './interfaces';
+import { TEmailConfig, TSendEmailParams } from './interfaces';
 import { Transporter, createTransport } from 'nodemailer';
+import { TEMPLATES } from './templates';
 
 const EMAIL = 'EMAIL' as const;
 
@@ -35,15 +36,20 @@ class EmailProvider extends BaseProvider {
     }
   }
 
-  async sendTestEmail() {
-    const info = await this.transporter.sendMail({
-      from: '"Fred Foo 👻" <adrihfly.dev@gmail.com>', // sender address
-      to: 'adrian.lpes@gmail.com', // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Hello world?', // plain text body
-      html: '<b>Hello world?</b>', // html body
-    });
-    console.log({ info });
+  async sendEmail({ template: { id, params }, to, subject }: TSendEmailParams) {
+    try {
+      const htmlGenerator = TEMPLATES[id];
+      const html = htmlGenerator(params as any);
+      const info = await this.transporter.sendMail({
+        from: '"no reply 👻" <adrihfly.dev@gmail.com>', // sender address
+        to,
+        subject,
+        html,
+      });
+      this.logger.log(`Email sent to ${to} with ${info.messageId}`);
+    } catch (err) {
+      this.logger.error(err);
+    }
   }
 }
 
