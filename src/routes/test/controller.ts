@@ -1,13 +1,17 @@
 import { Controller, Get, Inject } from '@nestjs/common';
-import { TestService } from './service';
+import { ConfigService } from '@nestjs/config';
+import { InstagramProvider } from '@providers';
 
 @Controller()
 export class TestController {
-  @Inject()
-  private readonly service: TestService;
+  @Inject(InstagramProvider) private readonly instagram: InstagramProvider;
+  @Inject(ConfigService) private readonly config: ConfigService;
 
   @Get()
-  get(): string {
-    return this.service.get();
+  get() {
+    // const response = this.instagram.checkHealth();
+    const config = this.config.get('PORT');
+    console.log({ config });
+    return '';
   }
 }
